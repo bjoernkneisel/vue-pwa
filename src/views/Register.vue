@@ -1,6 +1,9 @@
 <template>
   <div class="register">
-    
+    <p>Bitte erstell dir einen Account</p>
+    <input type="text" placeholder="E-Mail" v-model="email">
+    <input type="password" placeholder ="Passwort" v-model ="password">
+    <button class="button" @click="signUp()">Registrieren</button>
   </div>
 </template>
 
@@ -8,20 +11,24 @@
 import { auth } from '../firebase'
 export default {
   name: 'Register',
-  props: {
-    displayName: null,
-    error: null
+  data() {
+    return {
+      email: '',
+      password: ''
+    } 
   },
   methods: {
-    submit() {
-      auth()
-      .createUserWithEmailAndPassword(this.form.email, this.form.password)
+    signUp() {
+      auth.createUserWithEmailAndPassword(this.email, this.password)
         .then(data => {
           data.user
             .updateProfile({
               displayName: this.form.name
             })
-            .then(() => {});
+            .then(() => {
+              alert('Account wurde erstellt');
+              this.$router.replace('home');
+            });
         })
         .catch(err => {
           this.error = err.message;

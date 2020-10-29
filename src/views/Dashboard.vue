@@ -1,7 +1,8 @@
 <template>
   <div class="Dashboard">
     <h1>Admin-Dashboard</h1>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Very Secret Database Info here :)))</h2>
+    <p>
   </div>
 </template>
 
