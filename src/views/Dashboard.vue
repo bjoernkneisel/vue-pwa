@@ -2,7 +2,7 @@
   <div class="Dashboard">
     <h1>Admin-Dashboard</h1>
     <h2>Very Secret Database Info here :)))</h2>
-    <p>
+    <p>12783</p>
   </div>
 </template>
 
