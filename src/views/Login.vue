@@ -4,8 +4,8 @@
       <div class="container">
         <div class="login">
           <h1 class="is-size-1 mb-4">Login</h1>
-          <input class="input mb-4" placeholder="E-Mail" type="text" v-model="email" />
-          <input class="input mb-4" placeholder="Password" type="password" v-model="password" />
+          <input class="input mb-4 is-rounded" placeholder="E-Mail" type="text" v-model="email" />
+          <input class="input mb-4 is-rounded" placeholder="Password" type="password" v-model="password" />
           <button class="button is-warning" type="submit" @click="login()">
             Einloggen
           </button>

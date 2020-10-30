@@ -3,7 +3,7 @@
     <div class="hero-body">
       <div class="container">
         <div class="register">
-          <h1 class="is-size-1">Registrierung</h1>
+          <h1 class="is-size-1 mb-4">Registrierung</h1>
           <input
             class="input is-rounded mb-4"
             type="text"
@@ -48,6 +48,6 @@ export default {
 <style lang="scss" scoped>
 .register {
   margin: 0 auto;
-  max-width: 50vw;
+  max-width: 60%;
 }
 </style>
