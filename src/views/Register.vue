@@ -1,39 +1,53 @@
 <template>
-  <div class="register">
-    <p>Bitte erstell dir einen Account</p>
-    <input type="text" placeholder="E-Mail" v-model="email">
-    <input type="password" placeholder ="Passwort" v-model ="password">
-    <button class="button" @click="signUp()">Registrieren</button>
-  </div>
+  <section class="hero is-dark is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <div class="register">
+          <h1 class="is-size-1">Registrierung</h1>
+          <input
+            class="input is-rounded mb-4"
+            type="text"
+            placeholder="E-Mail"
+            v-model="email"
+          />
+          <input
+            class="input is-rounded mb-4"
+            type="password"
+            placeholder="Passwort"
+            v-model="password"
+          />
+          <button class="button is-info" @click="signUp()">Registrieren</button>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import { auth } from '../firebase'
+import { auth, firestore } from "../firebase";
+
 export default {
-  name: 'Register',
+  name: "Register",
   data() {
     return {
-      email: '',
-      password: ''
-    } 
+      email: "",
+      password: "",
+    };
   },
   methods: {
-    signUp() {
-      auth.createUserWithEmailAndPassword(this.email, this.password)
-        .then(data => {
-          data.user
-            .updateProfile({
-              displayName: this.form.name
-            })
-            .then(() => {
-              alert('Account wurde erstellt');
-              this.$router.replace('home');
-            });
-        })
-        .catch(err => {
-          this.error = err.message;
-        });
+    signup() {
+      this.$store.dispatch('signup', {
+      email: this.email,
+      password: this.password,
+    })
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.register {
+  margin: 0 auto;
+  max-width: 50vw;
+}
+</style>

@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Navbar></Navbar>
+    <router-view />
+    <Footer></Footer>
   </div>
 </template>
 
-<style>
+<script>
+import Footer from "./components/Footer.vue";
+import Navbar from "./components/Navbar.vue";
+import { auth } from "./firebase";
+import { firestore } from "./firebase";
+import Vue from "vue";
+
+export default {
+  name: "App",
+  components: {
+    Footer,
+    Navbar,
+  },
+};
+</script>
+
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,7 +32,7 @@
 }
 
 #nav {
-  padding: 30px;
+  padding: 0.2rem;
 }
 
 #nav a {

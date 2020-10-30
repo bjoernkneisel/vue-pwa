@@ -1,33 +1,44 @@
 <template>
-  <div class="Dashboard">
-    <h1>Login</h1>
-    <input placeholder="E-Mail" type="text" v-model="email">
-    <input placeholder="Password" type="password" v-model="password"/>
-    <button class="button is-primary" type="submit" @click="login">Einloggen</button>
-    <router-link class="button is-primary" to="/register">Registrieren</router-link>
-  </div>
+  <section class="hero is-dark is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <div class="login">
+          <h1 class="is-size-1 mb-4">Login</h1>
+          <input class="input mb-4" placeholder="E-Mail" type="text" v-model="email" />
+          <input class="input mb-4" placeholder="Password" type="password" v-model="password" />
+          <button class="button is-warning" type="submit" @click="login()">
+            Einloggen
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import { auth } from '../firebase'
+import { auth } from "../firebase";
 export default {
-  name: 'Dashboard',
+  name: "Dashboard",
   data() {
     return {
       email: null,
-      password: null
-    } 
+      password: null,
+    };
   },
   methods: {
-    login(){
-      //login in firebase code
-      auth.signInWithEmailAndPassword(this.email, this.password).then(data => {
-        alert('Erfolgreich eingeloggt');
-        this.$router.replace('Dashboard')
-        }).catch(err => {
-          this.error = err.message;
-        });
-    }
-  } 
-}
+    login() {
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password
+    })
+  }
+  },
+};
 </script>
+
+<style lang="scss" scoped>
+.login {
+  max-width: 60%;
+  margin: 0 auto;
+}
+</style>

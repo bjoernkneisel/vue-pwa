@@ -1,19 +1,62 @@
 <template>
   <div class="Dashboard">
-    <h1>Admin-Dashboard</h1>
-    <h2>Very Secret Database Info here :)))</h2>
-    <p>12783</p>
+    <h1 class="is-size-1">Admin-Dashboard</h1>
+    <h5 class="is-size-5">Hier stehen sehr geheime Datenbank-Informationen:</h5>
+    <nav class="panel">
+      <p class="panel-heading">Nutzer-Datenbank</p>
+      <div class="panel-block">
+        <p class="control has-icons-left">
+          <input class="input" type="text" placeholder="Search" />
+          <span class="icon is-left">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </span>
+        </p>
+      </div>
+      <p class="panel-tabs">
+        <a class="is-active">Alle</a>
+        <a>Normal</a>
+        <a>Mitarbeiter</a>
+        <a>Administrator</a>
+      </p>
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <thead>
+          <th>Name</th>
+          <th>User-ID</th>
+          <th>E-Mail</th>
+          <th>Verifiziert</th>
+        </thead>
+        <tbody v-for="user in users" :key="user.id">
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.uid }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.emailVerified }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </nav>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { todosCollection, usersCollection } from "../firebase";
+import { auth } from "../firebase";
 
 export default {
-  name: 'Dashboard',
-  components: {
-    HelloWorld
+  name: "Dashboard",
+  data() {
+    return {
+      users: [],
+      todos: [],
+    };
+  },
+  firestore() {
+    return {
+      users: usersCollection,
+      todos: todosCollection,
+    };
+  },
+  methods: {
   }
-}
+} 
 </script>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Dashboard from '../views/Dashboard.vue'
+import Home from '../views/Home.vue'
 import { auth } from '../firebase.js'
 
 Vue.use(VueRouter)
@@ -8,6 +9,22 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'RedirectHome',
+    component: Home,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/Home',
+    name: 'Home',
+    component: Home,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/Dashboard',
     name: 'Dashboard',
     component: Dashboard,
     meta: {
