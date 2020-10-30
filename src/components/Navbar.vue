@@ -5,6 +5,7 @@
       <a
         role="button"
         class="navbar-burger burger"
+        onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
         aria-label="menu"
         aria-expanded="false"
         data-target="navbarBasicExample"
@@ -20,18 +21,7 @@
         <router-link class="navbar-item" to="/Home">Home</router-link>
         <router-link class="navbar-item" to="/Dashboard">Dashboard</router-link>
         <router-link class="navbar-item" to="/Settings">Einstellungen</router-link>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"> Mehr </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item"> About </a>
-            <a class="navbar-item"> Jobs </a>
-            <a class="navbar-item"> Contact </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item"> Report an issue </a>
-          </div>
-        </div>
       </div>
-
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">

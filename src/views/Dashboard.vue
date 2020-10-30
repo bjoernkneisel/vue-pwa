@@ -27,6 +27,7 @@
           >
             <thead>
               <th>Name</th>
+              <th>Rolle</th>
               <th>User-ID</th>
               <th>E-Mail</th>
               <th>Verifiziert</th>
@@ -34,6 +35,7 @@
             <tbody v-for="user in users" :key="user.id">
               <tr>
                 <td>{{ user.name }}</td>
+                <td>{{ user.role }}</td>
                 <td>{{ user.uid }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.emailVerified }}</td>

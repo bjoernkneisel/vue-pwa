@@ -21,11 +21,13 @@ const firestore = firebase.firestore()
 // collection references
 const usersCollection = firestore.collection('users');
 const todosCollection = firestore.collection('todos');
+const messagesCollection = firestore.collection('messages');
 
 // export utils/refs
 export {
   auth,
   firestore,
   usersCollection,
-  todosCollection
+  todosCollection,
+  messagesCollection
 }
