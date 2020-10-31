@@ -4,7 +4,10 @@
     <router-view />
     <Footer></Footer>
   </div>
-  <div v-else class="lds-ripple"><div></div><div></div></div>
+  <div v-else class="loader">
+    <div class="lds-ripple"><div></div><div></div></div>
+  </div>
+  
 </template>
 
 <script>
@@ -37,7 +40,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -84,6 +86,11 @@ export default {
     height: 72px;
     opacity: 0;
   }
+}
+.loader {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 </style>

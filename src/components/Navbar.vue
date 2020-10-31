@@ -57,5 +57,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.navbar {
+  background-color: #896978;
+}
+.navbar-brand {
+  .navbar-item {
+    color: #fff!important;
+  }
+}
+.navbar-item {
+  color: #fff;
+}
+a:hover {
+  background-color: #dcd6f7;
+  color: #242423;
+}
+.router-link-active {
+  background-color: #dcd6f7;
+  color: #242423;
+}
 </style>
