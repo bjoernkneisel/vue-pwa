@@ -1,24 +1,3 @@
 # vue-pwa
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Vue-App for my girlfriend, including a harry potter themed advent calendar, with 24 magic riddles and rewards.
