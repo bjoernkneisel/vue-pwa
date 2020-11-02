@@ -19,6 +19,7 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <router-link class="navbar-item" to="/Home">Home</router-link>
+        <router-link class="navbar-item" to="/Calendar">Adventskalender<span class="tag is-danger ml-2">Neu</span></router-link>
         <router-link class="navbar-item" to="/Dashboard">Dashboard</router-link>
         <router-link class="navbar-item" to="/Settings">Einstellungen</router-link>
       </div>
@@ -58,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  background-color: #896978;
+  background-color: #242423;
 }
 .navbar-brand {
   .navbar-item {
@@ -69,23 +70,23 @@ export default {
   color: #fff;
 }
 a:hover {
-  background-color: #dcd6f7;
+  background-color: #CACFD6;
   color: #242423;
 }
 .router-link-active {
-  background-color: #dcd6f7;
+  background-color: #CACFD6;
   color: #242423;
 }
 .router-link-exact-active {
-  background-color: #dcd6f7;
+  background-color: #CACFD6;
   color: #242423;
 }
 .navbar-item:focus {
-  background-color: #dcd6f7;
+  background-color: #CACFD6;
   color: #242423;
 }
 .navbar-item:focus-within {
-  background-color: #dcd6f7;
+  background-color: #CACFD6;
   color: #242423;
 }
 </style>

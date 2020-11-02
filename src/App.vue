@@ -2,7 +2,6 @@
   <div v-if="!loading" id="app">
     <Navbar></Navbar>
     <router-view />
-    <Footer></Footer>
   </div>
   <div v-else class="loader">
     <div class="lds-ripple"><div></div><div></div></div>
@@ -11,7 +10,6 @@
 </template>
 
 <script>
-import Footer from "./components/Footer.vue";
 import Navbar from "./components/Navbar.vue";
 import { auth } from "./firebase";
 import { firestore } from "./firebase";
@@ -20,39 +18,35 @@ import Vue from "vue";
 export default {
   name: "App",
   components: {
-    Footer,
-    Navbar,
+    Navbar
   },
   data() {
     return {
       loading: true
     } 
   },
-  mounted() {
-    setTimeout(() => { this.loading = false; }, 800);
+  created() {
+    this.loading = false;
   }
 };
 </script>
 
 <style lang="scss">
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-
-#nav {
-  padding: 0.2rem;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 
 .lds-ripple {
