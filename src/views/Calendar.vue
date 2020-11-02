@@ -3,7 +3,7 @@
   <section class="hero is-light is-fullheight-with-navbar">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title harry">Der trimagische Adventskalender</h1>
+        <h1 class="harry">Der trimagische Adventskalender</h1>
         <AdvCard doorNumber="1">1</AdvCard>
         <AdvCard doorNumber="2">2</AdvCard>
         <AdvCard doorNumber="3">3</AdvCard>
@@ -64,6 +64,7 @@ export default {
   padding: 1rem;
 }
 .harry {
+  margin-top: 0.75rem;
   font-family: 'Harry-Potter';
   font-weight: 500; 
   font-size: 3rem;
