@@ -58,12 +58,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media only screen and (max-width: 768px) {
+  .navbar-item {
+    color: #242423!important;
+  }
+}
 .navbar {
   background-color: #242423;
 }
 .navbar-brand {
   .navbar-item {
-    color: #fff!important;
+    color: #fff!important
   }
 }
 .navbar-item {
