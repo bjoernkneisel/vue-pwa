@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-fullheight-with-navbar">
+  <section class="hero is-light is-fullheight-with-navbar">
     <div class="container">
       <div class="Dashboard">
         <h1 class="is-size-1">Admin-Dashboard</h1>

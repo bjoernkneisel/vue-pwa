@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-dark is-fullheight-with-navbar">
+  <section class="hero is-light is-fullheight-with-navbar">
     <div class="hero-body">
       <div class="container">
         <h1 v-if="messages!=null" class="title">{{messages.today}}</h1>

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item is-size-4" href="/">CLARAFY</a>
+      <p class="navbar-item is-size-4">CLARAFY</p>
       <a
         role="button"
         class="navbar-burger burger"
@@ -73,6 +73,18 @@ a:hover {
   color: #242423;
 }
 .router-link-active {
+  background-color: #dcd6f7;
+  color: #242423;
+}
+.router-link-exact-active {
+  background-color: #dcd6f7;
+  color: #242423;
+}
+.navbar-item:focus {
+  background-color: #dcd6f7;
+  color: #242423;
+}
+.navbar-item:focus-within {
   background-color: #dcd6f7;
   color: #242423;
 }
