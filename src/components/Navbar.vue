@@ -19,7 +19,7 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <router-link class="navbar-item" to="/Home">Home</router-link>
-        <router-link class="navbar-item" to="/Calendar">Adventskalender<span class="tag is-danger ml-2">Neu</span></router-link>
+        <router-link v-if="this.userProfile.uid == '8csEdZ2jyZR3RN1pD11Q7hRC9A13'" class="navbar-item" to="/Calendar">Adventskalender<span class="tag is-danger ml-2">Neu</span></router-link>
         <router-link v-if="this.userProfile.role == 'admin'" class="navbar-item" to="/Dashboard">Dashboard</router-link>
         <router-link class="navbar-item" to="/Settings">Einstellungen</router-link>
       </div>
