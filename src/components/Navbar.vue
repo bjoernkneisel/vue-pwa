@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <p class="navbar-item is-size-4">CLARAFY</p>
+      <router-link to="/home" class="navbar-item is-size-4">CLARAFY</router-link>
       <a
         role="button"
         class="navbar-burger burger"
@@ -20,7 +20,7 @@
       <div class="navbar-start">
         <router-link class="navbar-item" to="/Home">Home</router-link>
         <router-link class="navbar-item" to="/Calendar">Adventskalender<span class="tag is-danger ml-2">Neu</span></router-link>
-        <router-link class="navbar-item" to="/Dashboard">Dashboard</router-link>
+        <router-link v-if="this.userProfile.role == 'admin'" class="navbar-item" to="/Dashboard">Dashboard</router-link>
         <router-link class="navbar-item" to="/Settings">Einstellungen</router-link>
       </div>
       <div class="navbar-end">
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1023px) {
   .navbar-item {
     color: #242423!important;
   }

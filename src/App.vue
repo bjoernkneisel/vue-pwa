@@ -57,7 +57,7 @@ body {
 }
 .lds-ripple div {
   position: absolute;
-  border: 4px solid green;
+  border: 4px solid #dcd6f7;
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -81,10 +81,4 @@ body {
     opacity: 0;
   }
 }
-.loader {
-  margin: 0 auto;
-  width: 100vw;
-  height: 100vh;
-}
-
 </style>
