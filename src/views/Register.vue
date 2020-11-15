@@ -35,7 +35,7 @@ export default {
     };
   },
   methods: {
-    signup() {
+    signUp() {
       this.$store.dispatch('signup', {
       email: this.email,
       password: this.password,
