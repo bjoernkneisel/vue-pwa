@@ -28,6 +28,6 @@ a:hover {
   color: orange;
 }
 .checkbox:hover {
-  color: #fff;
+color:  #00FFC5;
 }
 </style>
