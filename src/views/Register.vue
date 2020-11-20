@@ -4,6 +4,7 @@
       <div class="container">
         <div class="register">
           <h1 class="is-size-1 mb-4">Registrierung</h1>
+          <form @submit="signUp()" >
           <input
             class="input is-rounded mb-4"
             type="text"
@@ -17,6 +18,7 @@
             v-model="password"
           />
           <button class="button is-info" @click="signUp()">Registrieren</button>
+        </form>
         </div>
       </div>
     </div>
