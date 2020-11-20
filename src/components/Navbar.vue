@@ -90,12 +90,4 @@ a:hover {
   background-color: #00FFC5;
   color: #242423;
 }
-.navbar-item:focus {
-  color: #242423;
-  background-color:  #00FFC5;
-}
-.navbar-item:focus-within {
-  color:#242423;
-  background-color:  #00FFC5;
-}
 </style>
