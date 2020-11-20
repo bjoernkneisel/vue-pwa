@@ -38,7 +38,6 @@ export default {
       if (this.notReady == "true") {
         alert('Du darfst den Kalender noch nicht öffnen!');
       } else {
-      console.log("Opening Door " + this.doorNumber + "!");
       // access firebase and fetch question + password
       firestore
         .collection("doors")
@@ -46,7 +45,6 @@ export default {
         .get()
         .then((doc) => {
           this.card = doc.data();
-          console.log(this.card);
           if (this.card.solved === true) {
             this.$router.push({
               name: "doorSuccess",
