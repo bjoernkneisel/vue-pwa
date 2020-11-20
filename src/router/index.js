@@ -4,6 +4,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Home from '../views/Home.vue'
 import Calendar from '../views/Calendar.vue'
 import DoorSuccess from '../views/DoorSuccess.vue'
+import DoorFailure from '../views/DoorFailure.vue'
 import { auth } from '../firebase.js'
 
 Vue.use(VueRouter)
@@ -45,6 +46,14 @@ const routes = [
     path: '/doorSuccess/:id', 
     name: 'doorSuccess',
     component: DoorSuccess, 
+    meta: {
+      requiresAuth: true
+    }
+  },
+  { 
+    path: '/doorFailure/:id', 
+    name: 'doorFailure',
+    component: DoorFailure, 
     meta: {
       requiresAuth: true
     }
