@@ -2,11 +2,12 @@
 <template>
   <section class="hero is-light is-fullheight-with-navbar">
     <div class="hero-body">
-      <div class="container">
+      <div v-if="loadCards" class="columns">
+        <div class="column is-3 center-vertically">
         <h1 class="harry">Der trimagische Adventskalender</h1>
         <div class="countdown">
           <br>
-          <div class="hidewhendone" v-if="(this.days && this.hours && this.minutes && this.seconds) != 0">
+          <div class="hidewhendone" v-if="(this.days + this.hours + this.minutes + this.seconds) > 0">
           <p class="tag is-danger mx-2">Tage: {{this.days}}</p>
           <p class="tag is-warning mx-2">Stunden: {{this.hours}}</p>
           <p class="tag is-info mx-2">Min.: {{this.minutes}}</p>
@@ -20,40 +21,35 @@
           </div>
           <div v-else class="done"></div>
         </div>
-      </div>
-        <div class="container" v-if="this.$calendarConfig.enabled === true">
-          <div v-if="loadCards">
-            <AdvCard doorNumber="1">1</AdvCard>
-            <AdvCard doorNumber="2">2</AdvCard>
-            <AdvCard doorNumber="3">3</AdvCard>
-            <AdvCard doorNumber="4">4</AdvCard>
-            <AdvCard doorNumber="5">5</AdvCard>
-            <AdvCard doorNumber="6">6</AdvCard>
-            <AdvCard doorNumber="7">7</AdvCard>
-            <AdvCard doorNumber="8">8</AdvCard>
-            <AdvCard doorNumber="9">9</AdvCard>
-            <AdvCard doorNumber="10">10</AdvCard>
-            <AdvCard doorNumber="11">11</AdvCard>
-            <AdvCard doorNumber="12">12</AdvCard>
-            <AdvCard doorNumber="13">13</AdvCard>
-            <AdvCard doorNumber="14">14</AdvCard>
-            <AdvCard doorNumber="15">15</AdvCard>
-            <AdvCard doorNumber="16">16</AdvCard>
-            <AdvCard doorNumber="17">17</AdvCard>
-            <AdvCard doorNumber="18">18</AdvCard>
-            <AdvCard doorNumber="19">19</AdvCard>
-            <AdvCard doorNumber="20">20</AdvCard>
-            <AdvCard doorNumber="21">21</AdvCard>
-            <AdvCard doorNumber="22">22</AdvCard>
-            <AdvCard doorNumber="23">23</AdvCard>
-            <AdvCard doorNumber="24">24</AdvCard>
-          </div>
-          <div v-else>
-            <p>Lade deinen Adventskalender ...</p>
-            <div class="lds-ripple"><div></div><div></div></div>
-          </div>
         </div>
-        <div v-else class="hideonmobile">
+        <div class="column is-9">
+          <div class="container" v-if="((this.days + this.hours + this.minutes + this.seconds) <= 0) && this.$calendarConfig.enabled">
+              <AdvCard doorNumber="1">1</AdvCard>
+              <AdvCard doorNumber="2">2</AdvCard>
+              <AdvCard doorNumber="3">3</AdvCard>
+              <AdvCard doorNumber="4">4</AdvCard>
+              <AdvCard doorNumber="5">5</AdvCard>
+              <AdvCard doorNumber="6">6</AdvCard>
+              <AdvCard doorNumber="7">7</AdvCard>
+              <AdvCard doorNumber="8">8</AdvCard>
+              <AdvCard doorNumber="9">9</AdvCard>
+              <AdvCard doorNumber="10">10</AdvCard>
+              <AdvCard doorNumber="11">11</AdvCard>
+              <AdvCard doorNumber="12">12</AdvCard>
+              <AdvCard doorNumber="13">13</AdvCard>
+              <AdvCard doorNumber="14">14</AdvCard>
+              <AdvCard doorNumber="15">15</AdvCard>
+              <AdvCard doorNumber="16">16</AdvCard>
+              <AdvCard doorNumber="17">17</AdvCard>
+              <AdvCard doorNumber="18">18</AdvCard>
+              <AdvCard doorNumber="19">19</AdvCard>
+              <AdvCard doorNumber="20">20</AdvCard>
+              <AdvCard doorNumber="21">21</AdvCard>
+              <AdvCard doorNumber="22">22</AdvCard>
+              <AdvCard doorNumber="23">23</AdvCard>
+              <AdvCard doorNumber="24">24</AdvCard>
+      </div>
+      <div v-else class="hideonmobile">
           <AdvCard notReady="true" doorNumber="1">1</AdvCard>
           <AdvCard notReady="true" doorNumber="2">2</AdvCard>
           <AdvCard notReady="true" doorNumber="3">3</AdvCard>
@@ -78,7 +74,13 @@
           <AdvCard notReady="true" doorNumber="22">22</AdvCard>
           <AdvCard notReady="true" doorNumber="23">23</AdvCard>
           <AdvCard notReady="true" doorNumber="24">24</AdvCard>
+      </div>
         </div>
+      </div>
+      <div v-else>
+        <p>Lade deinen Adventskalender ...</p>
+        <div class="lds-ripple"><div></div><div></div></div>
+      </div>
       </div>
   </section>
 </template>
@@ -130,7 +132,8 @@ export default {
   },
   methods: {
     timerCount() {
-      var countDownDate = new Date("Dec 1, 2020 00:00:01").getTime();
+      var countDownDate = this.$calendarConfig.countDownDate.toDate();
+      console.log(countDownDate)
       var now = new Date().getTime();
       var distance = countDownDate - now;
       this.calcTime(distance);
@@ -174,6 +177,10 @@ export default {
 
 @media (min-width: 0px) and (max-width: 1024px) {
   .hideonmobile { display: none!important; }   /* hide it elsewhere */
+}
+
+.center-vertically {
+  align-items: center;
 }
 
 </style>
