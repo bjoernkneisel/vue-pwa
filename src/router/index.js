@@ -5,19 +5,13 @@ import Home from '../views/Home.vue'
 import Calendar from '../views/Calendar.vue'
 import DoorSuccess from '../views/DoorSuccess.vue'
 import DoorFailure from '../views/DoorFailure.vue'
+import DoorInput from '../views/DoorInput.vue'
 import { auth } from '../firebase.js'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/home',
-    name: 'RedirectHome',
-    component: Home,
-    meta: {
-      requiresAuth: true
-    }
-  },
+  { path: '/home', component: Home, alias: '/Home' },
   {
     path: '/Home',
     name: 'Home',
@@ -54,6 +48,14 @@ const routes = [
     path: '/doorFailure/:id', 
     name: 'doorFailure',
     component: DoorFailure, 
+    meta: {
+      requiresAuth: true
+    }
+  },
+  { 
+    path: '/doorInput/:id', 
+    name: 'doorInput',
+    component: DoorInput, 
     meta: {
       requiresAuth: true
     }

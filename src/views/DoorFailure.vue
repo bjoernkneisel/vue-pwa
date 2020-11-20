@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'DoorSuccess',
+  name: 'DoorFailure',
   computed: {
     hinweis() {
       return this.$cards[this.$route.params.id].help;

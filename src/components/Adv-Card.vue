@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { firestore } from "../firebase";
 export default {
   name: "Adv-Card",
   props: {
@@ -31,47 +30,19 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loadCards = true
-    }, 800)
+    }, 600)
   },
   methods: {
     openCard() {
       if (this.notReady == "true") {
         alert('Du darfst den Kalender noch nicht öffnen!');
       } else {
-      // access firebase and fetch question + password
-      firestore
-        .collection("doors")
-        .doc(this.doorNumber)
-        .get()
-        .then((doc) => {
-          this.card = doc.data();
-          if (this.card.solved === true) {
-            this.$router.push({
-              name: "doorSuccess",
-              params: { id: this.card.doorNumber },
-            });
-          } else {
-            alert(this.card.question);
-            var resp = window.prompt("Deine Antwort");
-            if (resp === this.card.password) {
-              resp = null;
-              firestore.collection("doors").doc(this.card.doorNumber).update({
-                solved: true,
-              });
-              this.$router.push({
-                name: "doorSuccess",
-                params: { id: this.card.doorNumber },
-              });
-            } else {
-              resp = null;
-              this.$router.push({
-                name: "doorFailure",
-                params: { id: this.card.doorNumber },
-              });
-            }
-          }
+        this.$router.push({
+          name: "doorInput",
+          params: { id: this.doorNumber },
         });
-    }}
+      }
+    }
   }
 }   
 </script>

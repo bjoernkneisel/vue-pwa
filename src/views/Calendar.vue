@@ -119,11 +119,8 @@ export default {
       .get()
       .then((doc) => {
         this.$calendarConfig = doc.data();
+        this.loadCards = true;
       });
-    setTimeout(() => {
-      // Delay to show fancy css loader :)
-      this.loadCards = true;
-    }, 1200);
     this.interval = setInterval(() => {
       this.timerCount();
     }, 1000);
