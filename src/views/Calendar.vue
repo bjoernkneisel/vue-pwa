@@ -119,9 +119,7 @@ export default {
       .get()
       .then((doc) => {
         this.$calendarConfig = doc.data();
-        console.log(this.$calendarConfig);
       });
-    console.log(this.$cards);
     setTimeout(() => {
       // Delay to show fancy css loader :)
       this.loadCards = true;
@@ -133,7 +131,6 @@ export default {
   methods: {
     timerCount() {
       var countDownDate = this.$calendarConfig.countDownDate.toDate();
-      console.log(countDownDate)
       var now = new Date().getTime();
       var distance = countDownDate - now;
       this.calcTime(distance);
