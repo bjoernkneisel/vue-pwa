@@ -41,6 +41,7 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  max-height: 100vh
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
