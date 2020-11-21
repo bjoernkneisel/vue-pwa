@@ -5,18 +5,26 @@
         <div class="register">
           <h1 class="is-size-1 mb-4">Registrierung</h1>
           <form @submit="signUp()" >
-          <input
-            class="input is-rounded mb-4"
-            type="text"
-            placeholder="E-Mail"
-            v-model="email"
-          />
-          <input
-            class="input is-rounded mb-4"
-            type="password"
-            placeholder="Passwort"
-            v-model="password"
-          />
+          <div class="columns is-centered">
+            <div class="column is-full-mobile is-half-desktop">
+              <input
+                class="input"
+                placeholder="E-Mail"
+                type="text"
+                v-model="email"
+              />
+            </div>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-full-mobile is-half-desktop">
+              <input
+                class="input"
+                placeholder="Password"
+                type="password"
+                v-model="password"
+              />
+            </div>
+          </div>
           <button class="button is-info" @click="signUp()">Registrieren</button>
         </form>
         </div>

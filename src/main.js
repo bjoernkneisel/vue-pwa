@@ -7,7 +7,7 @@ import { firestorePlugin } from 'vuefire'
 
 Vue.config.productionTip = false;
 Vue.prototype.$cards = [];
-Vue.prototype.$calendarConfig = null;
+Vue.prototype.$calendarConfig = false
 Vue.use(firestorePlugin);
 Vue.use(router);
 

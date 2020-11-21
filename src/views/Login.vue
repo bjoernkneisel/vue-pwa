@@ -2,16 +2,32 @@
   <section class="hero is-light is-fullheight-with-navbar">
     <div class="hero-body">
       <div class="container">
-        <div class="login">
-          <h1 class="is-size-1 mb-4">Login</h1>
-          <form @submit="login()">
-          <input class="input mb-4 is-rounded" placeholder="E-Mail" type="text" v-model="email" />
-          <input class="input mb-4 is-rounded" placeholder="Password" type="password" v-model="password" />
+        <h1 class="is-size-1 mb-4">Login</h1>
+        <form @submit="login()">
+          <div class="columns is-centered">
+            <div class="column is-full-mobile is-half-desktop">
+              <input
+                class="input"
+                placeholder="E-Mail"
+                type="text"
+                v-model="email"
+              />
+            </div>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-full-mobile is-half-desktop">
+              <input
+                class="input"
+                placeholder="Password"
+                type="password"
+                v-model="password"
+              />
+            </div>
+          </div>
           <button class="button is-warning" type="submit" @click="login()">
             Einloggen
           </button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </section>
@@ -29,18 +45,14 @@ export default {
   },
   methods: {
     login() {
-      this.$store.dispatch('login', {
+      this.$store.dispatch("login", {
         email: this.email,
-        password: this.password
-    })
-  }
+        password: this.password,
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.login {
-  max-width: 60%;
-  margin: 0 auto;
-}
 </style>
