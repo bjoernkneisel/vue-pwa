@@ -29,13 +29,26 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.loadCards = true
-    }, 600)
+      if (this.$cards[this.doorNumber].solved === undefined) {
+        setTimeout(() => {
+          this.loadCards = true
+        }, 1000);
+      } else {
+        this.loadCards = true
+      }
+    }, 1000)
+
   },
   methods: {
     openCard() {
+      const today = new Date()
+      const dd = String(today.getDate()).padStart(2, '0')
+      const day = parseInt(dd)
+      console.log(day)
       if (this.notReady == "true") {
-        alert('Du darfst den Kalender noch nicht öffnen!');
+        alert('Du darfst den Kalender noch nicht öffnen!')
+      } else if (this.doorNumber > day) {
+        alert('Du darfst dieses Türchen heute noch nicht öffnen!')
       } else {
         this.$router.push({
           name: "doorInput",
